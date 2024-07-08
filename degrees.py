@@ -90,10 +90,35 @@ def shortest_path(source, target):
     that connect the source to the target.
 
     If no possible path, returns None.
-    """
-
-    # TODO
-    raise NotImplementedError
+    """    
+    frontier = QueueFrontier()
+    explored = set()
+    
+    actual_node = Node(state=source, parent=None, action=None)
+    
+    frontier.add(actual_node)
+    explored.add(source)
+    
+    while True:
+        if frontier.empty():
+            return None
+        
+        if actual_node.state == target:
+            print("Path found")
+        
+        explored.add(actual_node)
+        
+        actor_movies = people[actual_node.state]["movies"]
+        
+        for movie_id in actor_movies:
+            for actor_id in movies[movie_id]["stars"]:
+                if actor_id in explored:
+                    continue
+                else:
+                    frontier.add(Node(state=actor_id, parent=actual_node, action=movie_id))
+                    explored.add(actor_id)
+                    
+        actual_node = frontier.remove()
 
 
 def person_id_for_name(name):
