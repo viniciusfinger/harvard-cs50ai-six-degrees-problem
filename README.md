@@ -1,5 +1,5 @@
-# Degrees - CS50's Introduction to Artificial Intelligence with Python
-Degrees
+# Hollywood Six Degrees - CS50's IA Project 1 🍿📽️
+
 -------
 
 Write a program that determines how many “degrees of separation” apart two actors are.
