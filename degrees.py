@@ -104,8 +104,11 @@ def shortest_path(source, target):
             return None
         
         if actual_node.state == target:
-            # TODO return path
-            print("Path found")
+            path = []
+            while actual_node.parent is not None:
+                path.append((actual_node.action, actual_node.state))
+                actual_node = actual_node.parent
+            return list(reversed(path))
         
         explored.add(actual_node)
         
