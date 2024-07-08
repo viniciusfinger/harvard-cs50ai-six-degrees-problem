@@ -104,6 +104,7 @@ def shortest_path(source, target):
             return None
         
         if actual_node.state == target:
+            # TODO return path
             print("Path found")
         
         explored.add(actual_node)
